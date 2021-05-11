@@ -54,8 +54,12 @@ session_start();
                 <label for="noserv" class="form-label">Numéro de votre service :</label>
                 <input type="text" class="form-control" id="noserv" name="noserv" placeholder="Votre Numéro de service" required>
             </div>
+            <div class="mb-3">
+                <label for="embauche" class="form-label">Date d'embauche :</label>
+                <input type="date" class="form-control" id="embauche" name="embauche" required>
+            </div>
             <div>
-                </pan><button type="submit" class="btn btn-dark">Envoyer</button>
+                <button type="submit" class="btn btn-dark">Envoyer</button>
     </form>
     </div>
     </div>

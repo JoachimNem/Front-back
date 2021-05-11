@@ -18,7 +18,7 @@ if (isset($_GET["noemp"])) {
         control de données (isset, empty, preg_match)
     */
     if (
-        !isset($_POST["prenom"]) || empty($_POST["prenom"]) || !preg_match("#^[a-z -]$#i", $_POST["prenom"])
+        !isset($_POST["prenom"]) || empty($_POST["prenom"]) // || !preg_match("#^[a-z -]$#i", $_POST["prenom"])
     ) {
         // affichage du messages d'erreur
         $isThereError = true;
@@ -26,56 +26,56 @@ if (isset($_GET["noemp"])) {
     }
 
     if (
-        !isset($_POST["noemp"]) || empty($_POST["noemp"]) || !preg_match("#^[0-9]{4}$#", $_POST["noemp"])
+        !isset($_POST["noemp"]) || empty($_POST["noemp"]) // || !preg_match("#^[0-9]{4}$#", $_POST["noemp"])
     ) {
         // affichage du messages d'erreur
         $isThereError = true;
         $messages[] = "Erreur de saisie dans le numéro d'employé";
     }
     if (
-        !isset($_POST["nom"]) || empty($_POST["nom"]) || !preg_match("", $_POST["nom"])
+        !isset($_POST["nom"]) || empty($_POST["nom"]) // || !preg_match("", $_POST["nom"])
     ) {
         // affichage du messages d'erreur
         $isThereError = true;
         $messages[] = "Erreur de saisie dans le nom";
     }
     if (
-        !isset($_POST["emploi"]) || empty($_POST["emploi"]) || !preg_match("", $_POST["emploi"])
+        !isset($_POST["emploi"]) || empty($_POST["emploi"]) // || !preg_match("", $_POST["emploi"])
     ) {
         // affichage du messages d'erreur
         $isThereError = true;
         $messages[] = "Erreur de saisie dans l'emploi";
     }
     if (
-        !isset($_POST["sup"]) || empty($_POST["sup"]) || !preg_match("", $_POST["sup"])
+        !isset($_POST["sup"]) || empty($_POST["sup"]) // || !preg_match("", $_POST["sup"])
     ) {
         // affichage du messages d'erreur
         $isThereError = true;
         $messages[] = "Erreur de saisie dans le supérieur";
     }
     if (
-        !isset($_POST["embauche"]) || empty($_POST["embauche"]) || !preg_match("", $_POST["embauche"])
+        !isset($_POST["embauche"]) || empty($_POST["embauche"]) // || !preg_match("", $_POST["embauche"])
     ) {
         // affichage du messages d'erreur
         $isThereError = true;
         $messages[] = "Erreur de saisie dans la date d'embauche";
     }
     if (
-        !isset($_POST["sal"]) || empty($_POST["sal"]) || !preg_match("", $_POST["sal"])
+        !isset($_POST["sal"]) || empty($_POST["sal"]) // || !preg_match("", $_POST["sal"])
     ) {
         // affichage du messages d'erreur
         $isThereError = true;
         $messages[] = "Erreur de saisie dans le salaire";
     }
     if (
-        !isset($_POST["comm"]) || empty($_POST["comm"]) || !preg_match("", $_POST["comm"])
+        !isset($_POST["comm"]) || empty($_POST["comm"]) // || !preg_match("", $_POST["comm"])
     ) {
         // affichage du messages d'erreur
         $isThereError = true;
         $messages[] = "Erreur de saisie dans la commission";
     }
     if (
-        !isset($_POST["noserv"]) || empty($_POST["noserv"]) || !preg_match("", $_POST["noserv"])
+        !isset($_POST["noserv"]) || empty($_POST["noserv"]) // || !preg_match("", $_POST["noserv"])
     ) {
         // affichage du messages d'erreur
         $isThereError = true;

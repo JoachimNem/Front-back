@@ -20,18 +20,17 @@ session_start();
     if (!isset($_SESSION['email'])) {
         header('Location: form_connexion.php');
     } else {
-        supprimer_mysqli($_GET['id']);
+        supprimer_Mysqli($_GET['id']);
         header('tableau.php');
     }
 
 
     // $id = $_GET["id"];
 
-    function supprimer_mysqli($id)
+    function supprimer_Mysqli($id)
     {
         $bdd = mysqli_init();
         mysqli_real_connect($bdd, "localhost", "admin", "", "gestion_employe");
-        $result = mysqli_query($bdd, "DELETE FROM EMPLOYES WHERE noemp= $id;");
-        mysqli_free_result($result);
+        mysqli_query($bdd, "DELETE FROM EMPLOYES WHERE noemp= $id;");
         mysqli_close($bdd);
     }

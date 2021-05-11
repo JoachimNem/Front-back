@@ -16,9 +16,10 @@ session_start();
 
 <body>
     <?php
-    if (!isset($_SESSION['email'])) {
-        header('Location: form_connexion.php');
-    }
+    // new_Noemp();
+    // if (!isset($_SESSION['email'])) {
+    //     header('Location: form_connexion.php');
+    // }
     ?>
 
     <?php
@@ -26,7 +27,7 @@ session_start();
 
 
     if (preg_match("#[^\D]#", $_POST['sup']) && preg_match("#[^\D]#", $_POST['noserv'])) {
-        Ajout_Employee($_POST['sup'], $_POST['noserv'], $_POST['nom'], $_POST['prenom'], $_POST['emploi'], $_POST['sal'], $_POST['comm']);
+        ajoutEmployee($_POST['sup'], $_POST['noserv'], $_POST['nom'], $_POST['prenom'], $_POST['emploi'], $_POST['sal'], $_POST['comm'], $_POST['embauche']);
         echo "<p>Votre ajout a été correctement exécuté.</p>";
     } else {
         echo "<p>Vérifier saisie<p>";
@@ -63,23 +64,42 @@ session_start();
                 <label for='noserv' class='form-label'>Numéro de votre service :</label>
                 <input type='text' class='form-control' id='noserv' name='noserv' value=" . $_POST['noserv'] . ">
             </div>
+            <div class='mb-3'>
+            <label for='embauche' class='form-label'>Date d'embauche :</label>
+            <input type='date' class='form-control' id='embauche' name='embauche' value=" . $_POST['embauche'] . ">
+            </div>
             <div>
-                </pan><button type='submit' class='btn btn-dark'>Envoyer</button>
+                <button type='submit' class='btn btn-dark'>Envoyer</button>
             </div>
         </div>
     </form>";
     }
 
+    // function newNoemp()
+    // {
+    //     $bdd = mysqli_init();
+    //     mysqli_real_connect($bdd, "localhost", "admin", "", "gestion_employe");
+    //     $query = "SELECT MAX(noemp) FROM employes;";
+    //     $result = mysqli_query($bdd, $query);
+    //     $tab_Max_Noemp = mysqli_fetch_all($result, MYSQLI_NUM);
+    //     mysqli_free_result($result);
+    //     return $tab_Max_Noemp[0];
+    //     mysqli_close($bdd);
+    // }
 
-    function Ajout_Employee($sup, $noServ, $nom, $prenom, $emploi, $sal, $comm)
+
+
+    function ajoutEmployee($sup, $noServ, $nom, $prenom, $emploi, $sal, $comm, $embauche)
     {
         $bdd = mysqli_init();
         mysqli_real_connect($bdd, "localhost", "admin", "", "gestion_employe");
-        $rs = mysqli_query($bdd, "INSERT INTO employes (noemp, nom, prenom, emploi, sup, embauche, sal, comm, noserv)
-        SELECT MAX(noemp)+1, " . "'" . $nom . "', '" . $prenom . "', '" . $emploi . "', '" . $sup . "', '" . $sal . "', '" . $comm . "', '" . $noServ . "' " . " FROM employes;");
-        mysqli_free_result($rs);
+        $query = "INSERT INTO employes (noemp, nom, prenom, emploi, sup, embauche, sal, comm, noserv)
+        VALUES (NULL , " . "'" . $nom . "', '" . $prenom . "', '" . $emploi . "', " .  $sup . " , '" . $embauche . "', " . $sal . ", " . $comm . ", " . $noServ . " " . ");";
+        mysqli_query($bdd, $query);
         mysqli_close($bdd);
+        var_dump($query);
     }
+
 
     ?>
 

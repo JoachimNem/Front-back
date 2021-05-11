@@ -26,7 +26,7 @@ session_start();
                 <div>
                     <input class="case" type="password" id="password" name="user_password" placeholder="Mot de passe" required>
                 </div>
-                <input class="button" type="submit">Se connecter</button>
+                <input class="button" type="submit">
             </form>
 
             <a href="form_nouveau_compte.php"><button class="button">Créer un compte</button></a>
